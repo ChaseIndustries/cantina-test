@@ -26,9 +26,12 @@ function traverse(view, selector){
   }
 }
 
-readline.question(`What do you want?\n`, (selector) => {
-  traverse(data, selector);
-  output.length && console.log(output);
-  console.log(`Found ${output.length} items matching selector "${selector}"`);
-  readline.close()
-});
+function prompt(){
+    readline.question(`What do you want?\n`, (selector) => {
+      traverse(data, selector);
+      output.length && console.log(output);
+      console.log(`Found ${output.length} items matching selector "${selector}"`);
+      prompt();
+  });
+}
+prompt();
