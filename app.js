@@ -24,6 +24,9 @@ function traverse(view, selector){
   if(view.contentView){
     traverse(view.contentView, selector)
   }
+  if(view.control){
+    traverse(view.control, selector);
+  }
 }
 
 function prompt(){
