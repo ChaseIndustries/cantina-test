@@ -9,13 +9,9 @@ const output = [];
 function traverse(view, selector){
   const isClass = selector.charAt(0) === '.';
   const isIdentifier = selector.charAt(0) === '#';
-  if(isClass && view.classNames && view.classNames.includes(selector.slice(1))){
-    output.push(view);
-  } else
-  if(isIdentifier && view.identifier === selector.slice(1)){
-    output.push(view);
-  } else
-  if(view.class === selector){
+  if(isClass && view.classNames && view.classNames.includes(selector.slice(1))
+  || isIdentifier && view.identifier === selector.slice(1)
+  || view.class === selector){
     output.push(view);
   }
   if(view.subviews){
