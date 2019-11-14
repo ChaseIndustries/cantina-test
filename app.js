@@ -4,7 +4,7 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-const output = [];
+let output = [];
 
 function traverse(view, selector){
   const isClass = selector.charAt(0) === '.';
@@ -26,6 +26,7 @@ function traverse(view, selector){
 }
 
 function prompt(){
+    output = []; 
     readline.question(`What do you want?\n`, (selector) => {
       traverse(data, selector);
       output.length && console.log(output);
